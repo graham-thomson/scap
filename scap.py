@@ -24,6 +24,8 @@ def take_screenshot(url, width=1024, height=768):
 	driver.set_window_size(width, height)
 	driver.get(url)
 	time.sleep(1)
+	if not os.path.isdir("./screencaps"):
+		os.mkdir("./screencaps")
 	driver.save_screenshot('./screencaps/{}_{}.png'.format(time.strftime("%Y%m%d_%H%M", time.localtime()), domain))
 	return None
 
